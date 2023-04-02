@@ -212,11 +212,12 @@ segments:
       - [0x1E210, hasm, libultra/rmonrcp]
       - [0x1E2B0, c, libultra/rmonbrk]
 
-      - [0x1EFA0, asm, libunk/010]
-      - [0x1F9C0, asm, libunk/020]
-      - [0x1FB10, asm, libunk/030]
-      - [0x1FD00, asm, libunk/040]
-      - [0x1FE30, asm, libunk/050]
+      - [0x1EFA0, c, libnustd/malloc]
+      - [0x1F9C0, c, libnustd/frexp]
+      - [0x1FB10, c, libnustd/pow]
+      - [0x1FD00, c, libnustd/log]
+      - [0x1FE30, c, libnustd/exp]
+      - [0x1FFA0, hasm, libnustd/fabs]
 
       - [0x1FFB0, asm, libkmc/printf]
       - [0x21710, asm, libkmc/putchar]
