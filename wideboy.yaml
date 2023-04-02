@@ -247,6 +247,9 @@ segments:
       - [0x2BEC0, bin, gspS2DEX.fifo_d] # text
 
       - [0x2D6B0, data]
+      - [0x2D850, i4, numbers, 104, 8]
+      - [0x2D9F0, i4, buttons, 72, 8]
+      - [0x2DB10, data]
       - { start: 0x35980, type: bss, vram: 0x8005A580 }
 
   - [0x35980, ci8, frame, 320, 240]
