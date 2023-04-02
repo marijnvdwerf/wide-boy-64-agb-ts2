@@ -242,7 +242,7 @@ segments:
       - [0x2D6B0, data]
       - { start: 0x35980, type: bss, vram: 0x8005A580 }
 
-  - type: bin
-    start: 0x35980
-    follows_vram: main
+  - [0x35980, ci8, frame, 320, 240]
+  - [0x48580, palette, frame]
+  - [0x48780]
   - [0x400000]
