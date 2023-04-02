@@ -9,8 +9,6 @@ _pt_key = 0x80046968;
 _pt_puts = 0x80046984;
 
 
-
-
 mainproc = 0x80025f5c;
 
 _malloc_memcheck = 0x80043ba0;
@@ -31,3 +29,27 @@ pow = 0x80044710;
 log = 0x80044900;
 exp = 0x80044a30;
 fabs = 0x80044ba0;
+
+nuBoot = 0x80029df0;
+idle = 0x80029e54;
+nuScCreateScheduler = 0x8002a1f0;
+nuScAddClient = 0x8002a744;
+nuScResetClientMesgType = 0x8002a804;
+nuGfxTaskMgr = 0x8002b380;
+nuGfxTaskMgrInit = 0x8002b4fc;
+nuGfxTaskStart = 0x8002b8b0;
+nuGfxInit = 0x8002bae0;
+nuGfxSwapCfbFuncSet = 0x8002bc50;
+nuGfxTaskAllEndWait = 0x8002bce0;
+nuGfxSetCfb = 0x8002bd20;
+nuGfxDisplayOff = 0x8002be30;
+nuSiMgrInit = 0x8002bea0;
+nuSiMgrThread = 0x8002c04c;
+nuPiInit = 0x8002c4e0;
+eepromWrite = 0x8002dbac;
+gfxThread = 0x8002dc20;
+nuGfxThreadStart = 0x8002dd30;
+osEepromProbe = 0x8002dd90;
+osEepromLongWrite = 0x8002de50;
+osSetIntMask = 0x8002e020;
+osCreatePiManager = 0x8002e140;
