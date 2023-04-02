@@ -1,0 +1,188 @@
+name: Empty (Unknown)
+sha1: 9980e316e985aac8a04ec589622957692d1d84c9
+options:
+  basename: wideboy
+  target_path: baserom.z64
+  base_path: .
+  compiler: GCC
+  find_file_boundaries: True
+  header_encoding: ASCII
+  platform: n64
+  # undefined_funcs_auto: True
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto: True
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+  # symbol_addrs_path: symbol_addrs.txt
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+  # extensions_path: tools/splat_ext
+  # mips_abi_float_regs: o32
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+  # libultra_symbols: True
+  # hardware_regs: True
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: boot
+    type: bin
+    start: 0x40
+
+  - name: entry
+    type: code
+    start: 0x1000
+    vram: 0x80025C00
+    subsegments:
+      - [0x1000, hasm]
+
+  - name: main
+    type: code
+    start: 0x1050
+    vram: 0x80025C50
+    follows_vram: entry
+    bss_size: 0x1814F0
+    subsegments:
+      - [0x1050, asm]
+      - [0x19D0, asm]
+      - [0x1AF0, asm]
+      - [0x4030, asm]
+      - [0x4400, asm]
+      - [0x5140, asm]
+      - [0x5330, asm]
+      - [0x6780, asm]
+      - [0x6EE0, asm]
+      - [0x7000, asm]
+      - [0x7050, asm]
+      - [0x70A0, asm]
+      - [0x70E0, asm]
+      - [0x7230, asm]
+      - [0x7270, asm]
+      - [0x72A0, asm]
+      - [0x7710, asm]
+      - [0x7830, asm]
+      - [0x78E0, asm]
+      - [0x7DB0, asm]
+      - [0x7E00, asm]
+      - [0x7E90, asm]
+      - [0x7F40, asm]
+      - [0x83D0, asm]
+      - [0x8D70, asm]
+      - [0x9020, asm]
+      - [0x9250, asm]
+      - [0x9420, asm]
+      - [0x9CF0, asm]
+      - [0x9D80, asm]
+      - [0x9FC0, asm]
+      - [0xA7E0, asm]
+      - [0xAB00, asm]
+      - [0xABD0, asm]
+      - [0xAEA0, asm]
+      - [0xB2D0, asm]
+      - [0xB3B0, asm]
+      - [0xB630, asm]
+      - [0xB710, asm]
+      - [0xBAC0, asm]
+      - [0xBB70, asm]
+      - [0xBE90, asm]
+      - [0xC3A0, asm]
+      - [0xC440, asm]
+      - [0xC600, asm]
+      - [0xC7B0, asm]
+      - [0xC960, asm]
+      - [0xCA60, asm]
+      - [0xCA90, asm]
+      - [0xCF40, asm]
+      - [0xCF70, asm]
+      - [0xD000, asm]
+      - [0xD100, asm]
+      - [0xD1F0, asm]
+      - [0xD3C0, asm]
+      - [0xD410, asm]
+      - [0xD560, asm]
+      - [0xD700, asm]
+      - [0xD7F0, asm]
+      - [0xD8B0, asm]
+      - [0xD990, asm]
+      - [0xE090, asm]
+      - [0xE150, asm]
+      - [0xE1D0, asm]
+      - [0xE250, asm]
+      - [0xE670, asm]
+      - [0xE740, asm]
+      - [0xEAA0, asm]
+      - [0xEDB0, asm]
+      - [0xF2A0, asm]
+      - [0xFFE0, asm]
+      - [0x109A0, asm]
+      - [0x11050, asm]
+      - [0x111E0, asm]
+      - [0x116A0, asm]
+      - [0x11730, asm]
+      - [0x11B30, asm]
+      - [0x12FE0, asm]
+      - [0x13340, asm]
+      - [0x13380, asm]
+      - [0x13930, asm]
+      - [0x13CC0, asm]
+      - [0x142B0, asm]
+      - [0x14300, asm]
+      - [0x14390, asm]
+      - [0x155C0, asm]
+      - [0x15650, asm]
+      - [0x156B0, asm]
+      - [0x15720, asm]
+      - [0x15900, asm]
+      - [0x15950, asm]
+      - [0x15C30, asm]
+      - [0x15EE0, asm]
+      - [0x15F60, asm]
+      - [0x15FE0, asm]
+      - [0x16400, asm]
+      - [0x16B90, asm]
+      - [0x17D90, asm]
+      - [0x182A0, asm]
+      - [0x182B0, asm]
+      - [0x182C0, asm]
+      - [0x182D0, asm]
+      - [0x182E0, asm]
+      - [0x185A0, asm]
+      - [0x185D0, asm]
+      - [0x18600, asm]
+      - [0x18CF0, asm]
+      - [0x18D40, asm]
+      - [0x18EA0, asm]
+      - [0x18ED0, asm]
+      - [0x19A20, asm]
+      - [0x19E60, asm]
+      - [0x1B390, asm]
+      - [0x1B470, asm]
+      - [0x1C0B0, asm]
+      - [0x1CDF0, asm]
+      - [0x1D990, asm]
+      - [0x1DDE0, asm]
+      - [0x1DF80, asm]
+      - [0x1DFB0, asm]
+      - [0x1E210, asm]
+      - [0x1EFA0, asm]
+      - [0x1F9C0, asm]
+      - [0x1FB10, asm]
+      - [0x1FD00, asm]
+      - [0x1FE30, asm]
+      - [0x1FFB0, asm]
+      - [0x21A20, asm]
+      - [0x21B90, asm]
+      - [0x21BB0, asm]
+      - [0x21C50, asm]
+      - [0x21D00, asm]
+      - [0x21D30, asm]
+      - [0x21DB0, asm]
+      - [0x21FE0, data]
+      - { start: 0x35980, type: bss, vram: 0x8005A580 }
+
+  - type: bin
+    start: 0x35980
+    follows_vram: main
+  - [0x400000]

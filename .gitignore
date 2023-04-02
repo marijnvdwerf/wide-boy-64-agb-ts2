@@ -1,0 +1,6 @@
+undefined_funcs_auto.txt
+undefined_syms_auto.txt
+asm/
+assets/
+baserom.z64
+wideboy.ld
