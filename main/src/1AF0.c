@@ -1,4 +1,17 @@
 #include "common.h"
+#include <PR/gu.h>
+#include <PR/os_convert.h>
+
+typedef struct {
+    u8 unk_0[0xCC0];
+    Mtx var_CC0[0];
+} UnkStruct;
+
+extern u8 D_80052750[];
+extern u8 D_80052450[];
+extern u8 D_800527D0[];
+extern u32 D_801AAB90;
+extern Gfx* D_801AB9F4;
 
 INCLUDE_ASM(const s32, "main/src/1AF0", dma_read_wideboy_buffer);
 
@@ -70,7 +83,16 @@ INCLUDE_ASM(const s32, "main/src/1AF0", read_gba_frame);
 
 INCLUDE_ASM(const s32, "main/src/1AF0", func_80027DE0);
 
-INCLUDE_ASM(const s32, "main/src/1AF0", gfxFUN_80028088);
+void gfxFUN_80028088(UnkStruct* arg0, float x, float y, s32 arg3)
+{
+    guTranslate(&arg0->var_CC0[D_801AAB90], x, y, 0.0f);
+
+    gSPMatrix(D_801AB9F4++, OS_K0_TO_PHYSICAL(&arg0->var_CC0[D_801AAB90++]), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gDPPipeSync(D_801AB9F4++);
+    gSPDisplayList(D_801AB9F4++, D_80052750);
+    gDPLoadTextureTile_4b(D_801AB9F4++, &D_80052450[arg3 * 4], G_IM_FMT_IA, 104, 0, 0, 0, 7, 7, 0, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
+    gSPDisplayList(D_801AB9F4++, D_800527D0);
+}
 
 INCLUDE_ASM(const s32, "main/src/1AF0", func_80028244);
 
