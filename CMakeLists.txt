@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.24.2)
 enable_language(C ASM)
 project(wideboy)
 
+add_compile_definitions(_LANGUAGE_C)
+
 file(GLOB COMMON_FILEs "common/include/*.h")
 add_library(common INTERFACE)
 target_include_directories(common INTERFACE common/include)
