@@ -7,9 +7,15 @@ typedef struct {
     Mtx var_CC0[0];
 } UnkStruct;
 
+typedef struct {
+    f32 x;
+    f32 y;
+} UnkStruct2;
+
 extern u8 D_80052750[];
 extern u8 D_80052450[];
 extern u8 D_800527D0[];
+extern UnkStruct2 D_8012BA34;
 extern u32 D_801AAB90;
 extern Gfx* D_801AB9F4;
 
@@ -83,7 +89,7 @@ INCLUDE_ASM(const s32, "main/src/1AF0", read_gba_frame);
 
 INCLUDE_ASM(const s32, "main/src/1AF0", func_80027DE0);
 
-void gfxFUN_80028088(UnkStruct* arg0, float x, float y, s32 arg3)
+void draw_digit(UnkStruct* arg0, float x, float y, s32 arg3)
 {
     guTranslate(&arg0->var_CC0[D_801AAB90], x, y, 0.0f);
 
@@ -94,10 +100,34 @@ void gfxFUN_80028088(UnkStruct* arg0, float x, float y, s32 arg3)
     gSPDisplayList(D_801AB9F4++, D_800527D0);
 }
 
-INCLUDE_ASM(const s32, "main/src/1AF0", func_80028244);
+void draw_number_3_digits(UnkStruct* arg0, f32 x, f32 y, s32 arg3)
+{
+    s32 c, d;
 
-INCLUDE_ASM(const s32, "main/src/1AF0", func_80028370);
+    draw_digit(arg0, x, y, (arg3 % 1000) / 100);
 
-INCLUDE_ASM(const s32, "main/src/1AF0", func_80028444);
+    c = ((arg3 % 1000) % 100) / 10;
+    draw_digit(arg0, x + 8, y, c);
+
+    d = ((arg3 % 1000) % 100) % 10;
+    draw_digit(arg0, x + 16.0f, y, d);
+}
+
+void draw_number_2_digits(UnkStruct* ptr, f32 x, f32 y, s32 value)
+{
+    s32 b;
+
+    draw_digit(ptr, x, y, (value % 100) / 10);
+
+    b = (value % 100) % 10;
+    draw_digit(ptr, x + 8, y, b);
+}
+
+void draw_109b(UnkStruct* arg0, f32 arg1, f32 arg2)
+{
+    gDPSetPrimColor(D_801AB9F4++, 0, 0, 255, 255, 255, 255);
+    draw_number_3_digits(arg0, arg1 + (D_8012BA34.x * 184.0f), arg2 - (D_8012BA34.y * 40.0f), 109);
+    draw_digit(arg0, arg1 + (D_8012BA34.x * 184.0f) + 24.0f, arg2 - (D_8012BA34.y * 40.0f), 0xB);
+}
 
 INCLUDE_ASM(const s32, "main/src/1AF0", func_80028540);
