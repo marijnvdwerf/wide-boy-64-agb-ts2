@@ -4,6 +4,6 @@ nonmatchings/
 data/
 assets/
 build/
-gcc-2.7.2/
+tools/gcc_2.7.2/
 baserom.z64
 wideboy.ld
