@@ -49,7 +49,7 @@ ENDLINE := \n'
 ### Compiler Options ###
 
 ASFLAGS        := -G 0 -I common/include -mips3 -mabi=32
-CFLAGS         := -O1 -g -G0 -mips3 -mgp32 -mfp32 -Wa,--vr4300mul-off -D_LANGUAGE_C
+CFLAGS         := -O1 -G0 -mips3 -mgp32 -mfp32 -Wa,--vr4300mul-off -D_LANGUAGE_C
 CFLAGS         += -Wa,-I,common/include # Add include path for macros
 CPPFLAGS       := -I common/include
 LDFLAGS        := -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -T $(LD_SCRIPT) -Map $(LD_MAP) --no-check-sections
@@ -73,7 +73,7 @@ $(BUILD_DIR)/assets/buttons.png.o: IMAGE_MODE := i4
 $(BUILD_DIR)/assets/frame.png.o: IMAGE_MODE := ci8
 
 # main
-$(BUILD_DIR)/main/%.c.o: CPPFLAGS := -I main/include -I libnusys/include $(CPPFLAGS)
+$(BUILD_DIR)/main/%.c.o: CPPFLAGS := -I main/include -I libnusys/include -I libultra/include $(CPPFLAGS)
 
 # libnusys
 $(BUILD_DIR)/libnusys/%.c.o: CPPFLAGS := -I libnusys/include -I libultra/include $(CPPFLAGS)
