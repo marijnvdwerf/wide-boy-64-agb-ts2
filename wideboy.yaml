@@ -250,6 +250,18 @@ segments:
       - [0x2D850, i4, numbers, 104, 8]
       - [0x2D9F0, i4, buttons, 72, 8]
       - [0x2DB10, data]
+
+      - [0x2F960, bin, f3dex] # data
+      - [0x30160, bin, l3dex] # data
+      - [0x30960, bin, f3dex_non] # data
+      - [0x31160, bin, f3dlx] # data
+      - [0x31960, bin, f3dlx_non] # data
+      - [0x32160, bin, f3dlx_rej] # data
+      - [0x32960, bin, f3dlp_rej] # data
+      - [0x33160, bin, s2dex] # data
+      - [0x33520, bin, s2dexd] # data
+
+      - [0x33900, rodata]
       - { start: 0x35980, type: bss, vram: 0x8005A580 }
 
   - [0x35980, ci8, frame, 320, 240]
