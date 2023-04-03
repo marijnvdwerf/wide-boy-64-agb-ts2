@@ -2,4 +2,4 @@
 
 INCLUDE_ASM(const s32, "libultra/src/scale", guScaleF);
 
-INCLUDE_ASM(const s32, "libultra/src/scale", func_800302B0);
+INCLUDE_ASM(const s32, "libultra/src/scale", guScale);
