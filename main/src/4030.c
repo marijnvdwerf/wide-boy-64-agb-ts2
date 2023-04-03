@@ -1,6 +1,7 @@
 #include "common.h"
 
-void func_80028C30(void) {
+void func_80028C30(void)
+{
 }
 
 INCLUDE_ASM(const s32, "main/src/4030", init_gba_handle);
