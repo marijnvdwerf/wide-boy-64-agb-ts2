@@ -1,0 +1,5 @@
+#include "common.h"
+
+INCLUDE_ASM(const s32, "libultra/src/vimgr", osCreateViManager);
+
+INCLUDE_ASM(const s32, "libultra/src/vimgr", func_80033064);

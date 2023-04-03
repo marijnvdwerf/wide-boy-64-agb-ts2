@@ -1,6 +1,7 @@
 undefined_funcs_auto.txt
 undefined_syms_auto.txt
-asm/
+nonmatchings/
+data/
 assets/
 baserom.z64
 wideboy.ld
