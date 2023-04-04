@@ -24,9 +24,9 @@ glabel func_80025C00
 /* 1024 80025C24 00000000 */   nop
 /* 1028 80025C28 3C0A8003 */  lui        $t2, %hi(nuBoot)
 /* 102C 80025C2C 254A9DF0 */  addiu      $t2, $t2, %lo(nuBoot)
-/* 1030 80025C30 3C1D8016 */  lui        $sp, %hi(D_8015D7F0)
+/* 1030 80025C30 3C1D8016 */  lui        $sp, %hi(nuContNum)
 /* 1034 80025C34 01400008 */  jr         $t2
-/* 1038 80025C38 27BDD7F0 */   addiu     $sp, $sp, %lo(D_8015D7F0)
+/* 1038 80025C38 27BDD7F0 */   addiu     $sp, $sp, %lo(nuContNum)
 /* 103C 80025C3C 00000000 */  nop
 /* 1040 80025C40 00000000 */  nop
 /* 1044 80025C44 00000000 */  nop
