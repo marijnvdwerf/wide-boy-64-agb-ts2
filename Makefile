@@ -49,7 +49,7 @@ ENDLINE := \n'
 ### Compiler Options ###
 
 ASFLAGS        := -G 0 -I common/include -mips3 -mabi=32
-CFLAGS         := -O1 -G0 -mips3 -mgp32 -mfp32 -Wa,--vr4300mul-off -D_LANGUAGE_C -D_MIPS_SZLONG=32
+CFLAGS         := -O1 -G0 -mips3 -mgp32 -mfp32 -Wa,--vr4300mul-off -D_LANGUAGE_C -D_MIPS_SZLONG=32 -DF3DEX_GBI
 CFLAGS         += -Wa,-I,common/include # Add include path for macros
 CPPFLAGS       := -I common/include
 LDFLAGS        := -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -T $(LD_SCRIPT) -Map $(LD_MAP) --no-check-sections

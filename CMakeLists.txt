@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24.2)
 enable_language(C ASM)
 project(wideboy)
 
-add_compile_definitions(_LANGUAGE_C _MIPS_SZLONG=32)
+add_compile_definitions(_LANGUAGE_C _MIPS_SZLONG=32 F3DEX_GBI)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc")
 
 file(GLOB COMMON_FILES "common/include/**/*.h")
