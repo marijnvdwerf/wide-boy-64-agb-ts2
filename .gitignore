@@ -5,6 +5,7 @@ data/
 assets/
 build/
 expected/
+__pycache__/
 tools/gcc_2.7.2/
 baserom.z64
 wideboy.ld
