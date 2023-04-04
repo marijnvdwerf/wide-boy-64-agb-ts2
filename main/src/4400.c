@@ -4,21 +4,6 @@
 #include <malloc.h>
 #include <math.h>
 
-typedef struct {
-    /* 0x00 */ char pad0[0xC];
-    /* 0x0C */ s8 unkC; /* inferred */
-    /* 0x0D */ s8 unkD; /* inferred */
-    /* 0x0E */ s8 unkE; /* inferred */
-    /* 0x0F */ s8 unkF; /* inferred */
-} unkStruct24; /* size = 0x10 */
-
-typedef struct {
-    /* 0x00 */ char pad0[0x10];
-    /* 0x10 */ s32 unk10; /* inferred */
-    /* 0x14 */ char pad14[0x10]; /* maybe part of unk10[5]? */
-    /* 0x24 */ unkStruct24* unk24; /* inferred */
-} unkStruct; /* size = 0x28 */
-
 typedef union {
     u32 n;
     struct {
@@ -30,17 +15,17 @@ typedef union {
 } UnkStruct3;
 
 typedef struct {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    u32 count;
-    u32 unk14;
-    u32 unk18;
-    UnkStruct3 unk1C;
-    u16 unk20;
-    u16 unk22;
-    Vtx* unk24;
+    /* 0x00 */ s32 unk0;
+    /* 0x04 */ s32 unk4;
+    /* 0x08 */ s32 unk8;
+    /* 0x0C */ s32 unkC;
+    /* 0x10 */ s32 count;
+    /* 0x14 */ u32 unk14;
+    /* 0x18 */ u32 unk18;
+    /* 0x1C */ UnkStruct3 unk1C;
+    /* 0x20 */ s16 unk20;
+    /* 0x22 */ s16 unk22;
+    /* 0x24 */ Vtx* unk24;
 } UnkStruct5;
 
 void func_80029000(UnkStruct5* param_1, Vtx* param_2, s32 param_3, s32 param_4, s32 param_5)
@@ -153,21 +138,46 @@ Gfx* func_80029ACC(Gfx* gfx, UnkStruct5* arg1)
     return gfx;
 }
 
-INCLUDE_ASM(const s32, "main/src/4400", func_80029C6C);
+void func_80029C6C(UnkStruct5* arg0)
+{
+    free(arg0->unk24);
+}
 
-void func_80029C88(unkStruct* arg0, s8 arg1, s8 arg2, s8 arg3, s32 arg4)
+void func_80029C88(UnkStruct5* arg0, s8 arg1, s8 arg2, s8 arg3, s32 arg4)
 {
     s32 var_t0;
-    unkStruct24* var_v1;
+    Vtx* var_v1;
 
     var_v1 = arg0->unk24;
-    for (var_t0 = 0; var_t0 < arg0->unk10; var_t0++) {
-        var_v1->unkC = arg1;
-        var_v1->unkD = arg2;
-        var_v1->unkE = arg3;
-        var_v1->unkF = arg4;
+    for (var_t0 = 0; var_t0 < arg0->count; var_t0++) {
+        var_v1->n.n[0] = arg1;
+        var_v1->n.n[1] = arg2;
+        var_v1->n.n[2] = arg3;
+        var_v1->n.a = arg4;
         var_v1++;
     }
 }
 
-INCLUDE_ASM(const s32, "main/src/4400", func_80029CD0);
+void func_80029CD0(UnkStruct5* arg0, s32 arg1, s32 arg2)
+{
+    s32 var_b;
+    Vtx* ptr;
+    s32 var_a;
+    s32 i;
+
+    var_a = -arg0->unk20;
+    var_a = var_a - arg1;
+
+    var_b = -arg0->unk22;
+    var_b = arg2 + var_b;
+
+    ptr = arg0->unk24;
+    for (i = 0; i < arg0->count; i++) {
+        ptr->n.ob[0] += var_a;
+        ptr->n.ob[1] += var_b;
+        ptr++;
+    }
+
+    arg0->unk20 = -arg1;
+    arg0->unk22 = arg2;
+}
