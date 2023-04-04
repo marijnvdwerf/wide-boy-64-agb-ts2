@@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 3.24.2)
 enable_language(C ASM)
 project(wideboy)
 
-add_compile_definitions(_LANGUAGE_C)
+add_compile_definitions(_LANGUAGE_C _MIPS_SZLONG=32)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc")
 
-file(GLOB COMMON_FILEs "common/include/*.h")
-add_library(common INTERFACE)
+file(GLOB COMMON_FILES "common/include/**/*.h")
+add_library(common INTERFACE ${COMMON_FILES})
 target_include_directories(common INTERFACE common/include)
 
-file(GLOB LIBULTRA_FILES "libultra/src/*.c" "libultra/src/*.s" "libultra/include/*.h")
+file(GLOB LIBULTRA_FILES "libultra/src/*.c" "libultra/src/*.s" "libultra/include/**/*.h")
 add_library(libultra STATIC ${LIBULTRA_FILES})
 target_include_directories(libultra INTERFACE libultra/include)
 target_link_libraries(libultra common)

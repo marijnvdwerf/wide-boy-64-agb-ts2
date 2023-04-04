@@ -8,6 +8,7 @@ options:
   find_file_boundaries: True
   header_encoding: ASCII
   platform: n64
+  migrate_rodata_to_functions: true
   # undefined_funcs_auto: True
   # undefined_funcs_auto_path: undefined_funcs_auto.txt
   # undefined_syms_auto: True
@@ -264,7 +265,10 @@ segments:
       - [0x33160, bin, gspS2DEX.fifo.data] # data
       - [0x33520, bin, gspS2DEX.fifo_d.data] # data
 
-      - [0x33900, rodata]
+      - [0x33900, .rodata, main/src/1050]
+      - [0x33930, .rodata, main/src/1AF0]
+      - [0x33950, .rodata, main/src/4400]
+      - [0x33960, rodata]
       - { start: 0x35980, type: bss, vram: 0x8005A580 }
 
   - [0x35980, ci8, frame, 320, 240]
