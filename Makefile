@@ -92,7 +92,7 @@ $(BUILD_DIR)/%.c.o: %.c
 	@$(PRINT)$(GREEN)Compiling C file: $(ENDGREEN)$(BLUE)$<$(ENDBLUE)$(ENDLINE)
 	@mkdir -p $(shell dirname $@)
 	@$(CC_HOST) $(CFLAGS_CHECK) $(CPPFLAGS) -MMD -MP -MT $@ -MF $@.d $<
-	$(V)export COMPILER_PATH=$(CC_PATH) && $(CC) $(OPTFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(V)COMPILER_PATH=$(CC_PATH) $(CC) $(OPTFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	@$(STRIP) $@ -N dummy-symbol-name
 
 # Assemble .s files with modern gnu as
