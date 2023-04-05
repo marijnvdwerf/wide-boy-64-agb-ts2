@@ -71,6 +71,7 @@ nuContRmbMgrRemove = 0x8002d09c;
 contRmbStopMesg = 0x8002d90c;
 nuEepromMgrInit = 0x8002d970;
 nuEepromRead = 0x8002d9d0;
+nuEepromWrite = 0x8002DA4C;
 eepromWrite = 0x8002dbac;
 gfxThread = 0x8002dc20;
 nuGfxThreadStart = 0x8002dd30;

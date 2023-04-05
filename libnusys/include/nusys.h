@@ -23,3 +23,5 @@ extern OSMesgQueue nuSiMesgQ;
 extern u32 nuContNum;
 extern void nuSiCallBackAdd(NUCallBackList* list);
 extern void nuSiCallBackRemove(NUCallBackList* list);
+extern s32 nuEepromRead(u8 address, u8* buffer, u16 len);
+extern s32 nuEepromWrite(u8 address, u8* buffer, u16 len);
